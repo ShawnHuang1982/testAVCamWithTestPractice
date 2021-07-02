@@ -20,11 +20,11 @@
 		E46EC0DF268EDA34000E9D9D /* StartPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0DE268EDA34000E9D9D /* StartPageViewController.swift */; };
 		E46EC0EE268EE17C000E9D9D /* ImagePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0ED268EE17C000E9D9D /* ImagePreviewer.swift */; };
 		E46EC0F3268EE18E000E9D9D /* ImagePreviewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46EC0F2268EE18E000E9D9D /* ImagePreviewer.xib */; };
-		E46EC0F9268EE4FE000E9D9D /* LoabNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0F8268EE4FE000E9D9D /* LoabNib.swift */; };
 		E46EC116268EE982000E9D9D /* Rx+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC115268EE982000E9D9D /* Rx+UIButton.swift */; };
 		E46EC11C268EEA1D000E9D9D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC11A268EEA1D000E9D9D /* CameraViewController.swift */; };
 		E46EC11D268EEA1D000E9D9D /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46EC11B268EEA1D000E9D9D /* CameraViewController.xib */; };
 		E46EC125268EEF23000E9D9D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC124268EEF23000E9D9D /* UIViewController+Alert.swift */; };
+		E46EC12A268EF716000E9D9D /* XibLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC129268EF716000E9D9D /* XibLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,11 +71,11 @@
 		E46EC0DE268EDA34000E9D9D /* StartPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageViewController.swift; sourceTree = "<group>"; };
 		E46EC0ED268EE17C000E9D9D /* ImagePreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewer.swift; sourceTree = "<group>"; };
 		E46EC0F2268EE18E000E9D9D /* ImagePreviewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePreviewer.xib; sourceTree = "<group>"; };
-		E46EC0F8268EE4FE000E9D9D /* LoabNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoabNib.swift; sourceTree = "<group>"; };
 		E46EC115268EE982000E9D9D /* Rx+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+UIButton.swift"; sourceTree = "<group>"; };
 		E46EC11A268EEA1D000E9D9D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E46EC11B268EEA1D000E9D9D /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		E46EC124268EEF23000E9D9D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		E46EC129268EF716000E9D9D /* XibLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,9 +222,9 @@
 		E46EC0F7268EE4E7000E9D9D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E46EC0F8268EE4FE000E9D9D /* LoabNib.swift */,
 				E46EC115268EE982000E9D9D /* Rx+UIButton.swift */,
 				E46EC124268EEF23000E9D9D /* UIViewController+Alert.swift */,
+				E46EC129268EF716000E9D9D /* XibLoader.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -511,7 +511,7 @@
 				E46EC116268EE982000E9D9D /* Rx+UIButton.swift in Sources */,
 				E46EC11C268EEA1D000E9D9D /* CameraViewController.swift in Sources */,
 				E46EC0AD268ED914000E9D9D /* SceneDelegate.swift in Sources */,
-				E46EC0F9268EE4FE000E9D9D /* LoabNib.swift in Sources */,
+				E46EC12A268EF716000E9D9D /* XibLoader.swift in Sources */,
 				E46EC125268EEF23000E9D9D /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
