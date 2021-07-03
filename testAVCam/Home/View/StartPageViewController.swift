@@ -8,22 +8,21 @@
 import UIKit
 import RxSwift
 
-class StartPageViewController: UIViewController, PermissionChecker {
+class StartPageViewController: UIViewController {
 
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var imagePreview: ImagePreviewer!
     private var disposeBag: DisposeBag = DisposeBag()
+    var checker: PermissionManager = PermissionManager()
     
-    lazy var cameraViewController: CameraViewController = {
-        let vc = CameraViewController()
-        vc.delegate = self
-        return vc
-    }()
+//    var cameraViewController: CameraViewController = {
+//        let vc = CameraViewController()
+//        return vc
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinidng()
-        
     }
     
     private func setupBinidng() {
@@ -31,7 +30,7 @@ class StartPageViewController: UIViewController, PermissionChecker {
         //啟動拍照程序前, 需檢查
         takePhotoButton.rx
             .touchUpInside
-            .flatMap{ [unowned self] in self.checkPermission() }
+            .flatMap{ [unowned self] in checker.requestVideoPermission() }
             .subscribe(onNext: { [weak self] isCanLaunchCamera in
                 self?.launchCamerInCan(isCan: isCanLaunchCamera)
             }).disposed(by: self.disposeBag)
@@ -42,7 +41,9 @@ class StartPageViewController: UIViewController, PermissionChecker {
     private func launchCamerInCan(isCan: Bool) {
         DispatchQueue.main.async {
             if isCan {
-                self.present(self.cameraViewController, animated: true)
+                let cameraViewController = CameraViewController()
+                cameraViewController.delegate = self
+                self.present(cameraViewController, animated: true)
             } else {
                 self.presentAlertView(type: .okAction(message: "請同意權限", handler: { (action) in
                     //handle redirect to setting app
@@ -53,9 +54,12 @@ class StartPageViewController: UIViewController, PermissionChecker {
 }
 
 extension StartPageViewController: CameraViewControllerDelegate {
+    func dismissed() {
+    }
     
     func getPhoto(image: UIImage) {
         //取得圖片
         self.imagePreview.imageView.image = image
     }
+
 }

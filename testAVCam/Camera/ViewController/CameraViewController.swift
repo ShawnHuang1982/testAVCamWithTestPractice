@@ -11,9 +11,10 @@ import RxSwift
 
 protocol CameraViewControllerDelegate: class {
     func getPhoto(image: UIImage)
+    func dismissed()
 }
 
-class CameraViewController: UIViewController, PermissionChecker {
+class CameraViewController: UIViewController {
     
     @IBOutlet weak var takeButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
@@ -32,6 +33,8 @@ class CameraViewController: UIViewController, PermissionChecker {
     weak var delegate: CameraViewControllerDelegate?
     
     var captureController: VideoSessionController?
+    var checker: PermissionManager = PermissionManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +45,8 @@ class CameraViewController: UIViewController, PermissionChecker {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        checkPermission()
+        checker
+            .requestVideoPermission()
             .subscribe(onNext: { [weak self] allowed in
                 if allowed {
                     self?.startSession()
@@ -74,7 +78,7 @@ class CameraViewController: UIViewController, PermissionChecker {
         dismissButton.rx.touchUpInside.observe(on: MainScheduler.instance)
             .bind{ [weak self] in
                 self?.dismiss(animated: true, completion: {
-                    self?.stopSession()
+                    self?.delegate?.dismissed()
                 })
             }.disposed(by: self.disposeBag)
     }
