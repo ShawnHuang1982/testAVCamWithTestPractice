@@ -27,8 +27,9 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
     }()
     
     var captureController: VideoSessionController?
-    var checker: PermissionManager = PermissionManager()
+    var permissionChecker: PermissionManager = PermissionManager()
 
+    var viewModel: CameraViewModel = CameraViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        checker
+        permissionChecker
             .requestVideoPermission()
             .subscribe(onNext: { [weak self] allowed in
                 if allowed {

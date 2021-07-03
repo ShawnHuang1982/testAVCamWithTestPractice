@@ -46,8 +46,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="goCameraButton" destination="G8W-9L-ApA" id="3u5-kh-gFb"/>
                         <outlet property="imagePreview" destination="38D-kJ-Lmr" id="Bh6-e5-hBF"/>
-                        <outlet property="takePhotoButton" destination="G8W-9L-ApA" id="3u5-kh-gFb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

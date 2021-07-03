@@ -8,9 +8,12 @@
 import XCTest
 import AVFoundation
 @testable import testAVCam
+import RxSwift
 
 class StartPageViewControllerTests: XCTestCase {
 
+    var disposeBag = DisposeBag()
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -39,6 +42,38 @@ class StartPageViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.imagePreview.imageView.image, testImage)
     }
 
+    func test_permission_denied() {
+        let mockImageProvider = MockImageCaptureProvider()
+        let permissionChecker = PermissionManager(device: MockCaptureDevice(authorizationVideoStatus: .denied, completionHandler: { _ in }, granted: true))
+        let sut = StartPageViewController.instantiate (captureViewController: mockImageProvider, permissonChecker: permissionChecker)
+        sut.loadViewIfNeeded()
+        let exp = expectation(description: "")
+        
+        sut.viewModel.nextPageIfCan
+            .subscribe(onNext: { (allowed) in
+            XCTAssertFalse(allowed)
+            exp.fulfill()
+        }).disposed(by: self.disposeBag)
+        sut.goCameraButton.sendActions(for: .touchUpInside)
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func test_permission_allowed() {
+        let mockImageProvider = MockImageCaptureProvider()
+        let permissionChecker = PermissionManager(device: MockCaptureDevice(authorizationVideoStatus: .authorized, completionHandler: { _ in }, granted: true))
+        let sut = StartPageViewController.instantiate (captureViewController: mockImageProvider, permissonChecker: permissionChecker)
+        sut.loadViewIfNeeded()
+        let exp = expectation(description: "")
+        
+        sut.viewModel.nextPageIfCan
+            .subscribe(onNext: { (allowed) in
+            XCTAssertTrue(allowed)
+            exp.fulfill()
+        }).disposed(by: self.disposeBag)
+        sut.goCameraButton.sendActions(for: .touchUpInside)
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
 }
 
 class MockCaptureDevice: CaptureDevice {

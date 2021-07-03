@@ -32,6 +32,7 @@
 		E4DA9DE726909714002008E3 /* ImageCaptureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA9DE626909714002008E3 /* ImageCaptureProvider.swift */; };
 		E4DA9DEC26909E2F002008E3 /* StartPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA9DEB26909E2F002008E3 /* StartPageViewControllerTests.swift */; };
 		E4DA9DF426909E51002008E3 /* CameraViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA9DF326909E51002008E3 /* CameraViewControllerTests.swift */; };
+		E4DA9DF92690B281002008E3 /* StartPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA9DF82690B281002008E3 /* StartPageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		E4DA9DE626909714002008E3 /* ImageCaptureProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCaptureProvider.swift; sourceTree = "<group>"; };
 		E4DA9DEB26909E2F002008E3 /* StartPageViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageViewControllerTests.swift; sourceTree = "<group>"; };
 		E4DA9DF326909E51002008E3 /* CameraViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerTests.swift; sourceTree = "<group>"; };
+		E4DA9DF82690B281002008E3 /* StartPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		E46EC0E7268EDA42000E9D9D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E4DA9DF82690B281002008E3 /* StartPageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				E46EC0AB268ED914000E9D9D /* AppDelegate.swift in Sources */,
 				E46EC0EE268EE17C000E9D9D /* ImagePreviewer.swift in Sources */,
 				E46EC0DF268EDA34000E9D9D /* StartPageViewController.swift in Sources */,
+				E4DA9DF92690B281002008E3 /* StartPageViewModel.swift in Sources */,
 				E46EC116268EE982000E9D9D /* Rx+UIButton.swift in Sources */,
 				E46EC11C268EEA1D000E9D9D /* CameraViewController.swift in Sources */,
 				E4DA9DE726909714002008E3 /* ImageCaptureProvider.swift in Sources */,
