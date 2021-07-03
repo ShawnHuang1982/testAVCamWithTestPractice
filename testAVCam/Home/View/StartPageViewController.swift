@@ -11,6 +11,7 @@ import RxSwift
 class StartPageViewController: UIViewController, PermissionChecker {
 
     @IBOutlet weak var takePhotoButton: UIButton!
+    @IBOutlet weak var imagePreview: ImagePreviewer!
     private var disposeBag: DisposeBag = DisposeBag()
     
     lazy var cameraViewController: CameraViewController = {
@@ -55,5 +56,6 @@ extension StartPageViewController: CameraViewControllerDelegate {
     
     func getPhoto(image: UIImage) {
         //取得圖片
+        self.imagePreview.imageView.image = image
     }
 }
