@@ -7,9 +7,8 @@
 
 import UIKit
 import RxSwift
-import AVFoundation
 
-class StartPageViewController: UIViewController {
+class StartPageViewController: UIViewController, PermissionChecker {
 
     @IBOutlet weak var takePhotoButton: UIButton!
     private var disposeBag: DisposeBag = DisposeBag()
@@ -27,6 +26,8 @@ class StartPageViewController: UIViewController {
     }
     
     private func setupBinidng() {
+        
+        //啟動拍照程序前, 需檢查
         takePhotoButton.rx
             .touchUpInside
             .flatMap{ [unowned self] in self.checkPermission() }
@@ -35,21 +36,7 @@ class StartPageViewController: UIViewController {
             }).disposed(by: self.disposeBag)
     }
     
-    private func checkPermission() -> Observable<Bool> {
-        return Observable.create { observer -> Disposable in
-            switch AVCaptureDevice.authorizationStatus(for: .video) {
-            case .authorized:
-                observer.onNext(true)
-            case .notDetermined:
-                AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
-                    observer.onNext(granted)
-                })
-            default:
-                observer.onNext(false)
-            }
-        return Disposables.create()
-        }
-    }
+    
     
     private func launchCamerInCan(isCan: Bool) {
         DispatchQueue.main.async {

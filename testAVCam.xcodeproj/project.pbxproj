@@ -10,6 +10,11 @@
 		85D1A1EC25ACD6633DA6E7AC /* Pods_testAVCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D525FA16F5793C4D95F94CD2 /* Pods_testAVCam.framework */; };
 		CB6288C0433F00D5C9A66BFE /* Pods_testAVCam_testAVCamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566F9B699A6B64A09F78417D /* Pods_testAVCam_testAVCamUITests.framework */; };
 		E0A3061B5E279559F0114A97 /* Pods_testAVCamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C72CA705ABB948C3A0DA1A6 /* Pods_testAVCamTests.framework */; };
+		E43D299526902EE0003BE9B2 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D299426902EE0003BE9B2 /* CameraViewModel.swift */; };
+		E43D29A326902FFA003BE9B2 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D29A226902FFA003BE9B2 /* PhotoCaptureDelegate.swift */; };
+		E43D29AB26903007003BE9B2 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D29AA26903007003BE9B2 /* PreviewView.swift */; };
+		E43D29B02690325C003BE9B2 /* VideoSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D29AF2690325C003BE9B2 /* VideoSessionController.swift */; };
+		E43D29B82690334F003BE9B2 /* ItemSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D29B72690334F003BE9B2 /* ItemSelectionViewController.swift */; };
 		E46EC0AB268ED914000E9D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0AA268ED914000E9D9D /* AppDelegate.swift */; };
 		E46EC0AD268ED914000E9D9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0AC268ED914000E9D9D /* SceneDelegate.swift */; };
 		E46EC0B2268ED914000E9D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46EC0B0268ED914000E9D9D /* Main.storyboard */; };
@@ -25,6 +30,7 @@
 		E46EC11D268EEA1D000E9D9D /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46EC11B268EEA1D000E9D9D /* CameraViewController.xib */; };
 		E46EC125268EEF23000E9D9D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC124268EEF23000E9D9D /* UIViewController+Alert.swift */; };
 		E46EC12A268EF716000E9D9D /* XibLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC129268EF716000E9D9D /* XibLoader.swift */; };
+		E46EC134268EF94D000E9D9D /* PermissionChecker+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC133268EF94D000E9D9D /* PermissionChecker+Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,11 @@
 		991E11A1A33EC12E76A0081F /* Pods-testAVCam-testAVCamUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testAVCam-testAVCamUITests.debug.xcconfig"; path = "Target Support Files/Pods-testAVCam-testAVCamUITests/Pods-testAVCam-testAVCamUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A78E128801F65DE35DA0DFA3 /* Pods-testAVCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testAVCamTests.debug.xcconfig"; path = "Target Support Files/Pods-testAVCamTests/Pods-testAVCamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D525FA16F5793C4D95F94CD2 /* Pods_testAVCam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testAVCam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43D299426902EE0003BE9B2 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		E43D29A226902FFA003BE9B2 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
+		E43D29AA26903007003BE9B2 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		E43D29AF2690325C003BE9B2 /* VideoSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSessionController.swift; sourceTree = "<group>"; };
+		E43D29B72690334F003BE9B2 /* ItemSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSelectionViewController.swift; sourceTree = "<group>"; };
 		E46EC0A7268ED914000E9D9D /* testAVCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testAVCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46EC0AA268ED914000E9D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46EC0AC268ED914000E9D9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +87,7 @@
 		E46EC11B268EEA1D000E9D9D /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		E46EC124268EEF23000E9D9D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		E46EC129268EF716000E9D9D /* XibLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoader.swift; sourceTree = "<group>"; };
+		E46EC133268EF94D000E9D9D /* PermissionChecker+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionChecker+Camera.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +141,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E43D299926902F18003BE9B2 /* VideoPreviewer */ = {
+			isa = PBXGroup;
+			children = (
+				E43D29AF2690325C003BE9B2 /* VideoSessionController.swift */,
+				E43D29B72690334F003BE9B2 /* ItemSelectionViewController.swift */,
+				E43D29AA26903007003BE9B2 /* PreviewView.swift */,
+				E43D29A226902FFA003BE9B2 /* PhotoCaptureDelegate.swift */,
+			);
+			path = VideoPreviewer;
+			sourceTree = "<group>";
+		};
+		E43D299D26902F4B003BE9B2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E46EC11A268EEA1D000E9D9D /* CameraViewController.swift */,
+				E46EC11B268EEA1D000E9D9D /* CameraViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E43D299E26902F52003BE9B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E43D299426902EE0003BE9B2 /* CameraViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E46EC09E268ED914000E9D9D = {
 			isa = PBXGroup;
 			children = (
@@ -155,8 +195,10 @@
 		E46EC0A9268ED914000E9D9D /* testAVCam */ = {
 			isa = PBXGroup;
 			children = (
+				E46EC132268EF925000E9D9D /* Helper */,
 				E46EC0F7268EE4E7000E9D9D /* Extension */,
 				E46EC0EC268EE14E000E9D9D /* Component */,
+				E46EC108268EE756000E9D9D /* Camera */,
 				E46EC0E8268EDA4A000E9D9D /* Home */,
 				E46EC0AA268ED914000E9D9D /* AppDelegate.swift */,
 				E46EC0AC268ED914000E9D9D /* SceneDelegate.swift */,
@@ -213,8 +255,8 @@
 		E46EC0EC268EE14E000E9D9D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				E46EC108268EE756000E9D9D /* Camera */,
-				E46EC107268EE749000E9D9D /* Preview */,
+				E43D299926902F18003BE9B2 /* VideoPreviewer */,
+				E46EC107268EE749000E9D9D /* ImagePreviewer */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -229,22 +271,30 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		E46EC107268EE749000E9D9D /* Preview */ = {
+		E46EC107268EE749000E9D9D /* ImagePreviewer */ = {
 			isa = PBXGroup;
 			children = (
 				E46EC0ED268EE17C000E9D9D /* ImagePreviewer.swift */,
 				E46EC0F2268EE18E000E9D9D /* ImagePreviewer.xib */,
 			);
-			path = Preview;
+			path = ImagePreviewer;
 			sourceTree = "<group>";
 		};
 		E46EC108268EE756000E9D9D /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				E46EC11A268EEA1D000E9D9D /* CameraViewController.swift */,
-				E46EC11B268EEA1D000E9D9D /* CameraViewController.xib */,
+				E43D299E26902F52003BE9B2 /* ViewModel */,
+				E43D299D26902F4B003BE9B2 /* ViewController */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		E46EC132268EF925000E9D9D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E46EC133268EF94D000E9D9D /* PermissionChecker+Camera.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,8 +559,14 @@
 				E46EC0EE268EE17C000E9D9D /* ImagePreviewer.swift in Sources */,
 				E46EC0DF268EDA34000E9D9D /* StartPageViewController.swift in Sources */,
 				E46EC116268EE982000E9D9D /* Rx+UIButton.swift in Sources */,
+				E43D29B82690334F003BE9B2 /* ItemSelectionViewController.swift in Sources */,
 				E46EC11C268EEA1D000E9D9D /* CameraViewController.swift in Sources */,
+				E43D29AB26903007003BE9B2 /* PreviewView.swift in Sources */,
+				E43D29A326902FFA003BE9B2 /* PhotoCaptureDelegate.swift in Sources */,
+				E43D29B02690325C003BE9B2 /* VideoSessionController.swift in Sources */,
 				E46EC0AD268ED914000E9D9D /* SceneDelegate.swift in Sources */,
+				E43D299526902EE0003BE9B2 /* CameraViewModel.swift in Sources */,
+				E46EC134268EF94D000E9D9D /* PermissionChecker+Camera.swift in Sources */,
 				E46EC12A268EF716000E9D9D /* XibLoader.swift in Sources */,
 				E46EC125268EEF23000E9D9D /* UIViewController+Alert.swift in Sources */,
 			);
