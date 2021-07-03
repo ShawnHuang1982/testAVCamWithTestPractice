@@ -141,7 +141,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E43D299926902F18003BE9B2 /* VideoPreviewer */ = {
+		E43D299926902F18003BE9B2 /* Capturer */ = {
 			isa = PBXGroup;
 			children = (
 				E43D29AF2690325C003BE9B2 /* VideoSessionController.swift */,
@@ -149,7 +149,7 @@
 				E43D29AA26903007003BE9B2 /* PreviewView.swift */,
 				E43D29A226902FFA003BE9B2 /* PhotoCaptureDelegate.swift */,
 			);
-			path = VideoPreviewer;
+			path = Capturer;
 			sourceTree = "<group>";
 		};
 		E43D299D26902F4B003BE9B2 /* ViewController */ = {
@@ -255,7 +255,7 @@
 		E46EC0EC268EE14E000E9D9D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				E43D299926902F18003BE9B2 /* VideoPreviewer */,
+				E43D299926902F18003BE9B2 /* Capturer */,
 				E46EC107268EE749000E9D9D /* ImagePreviewer */,
 			);
 			path = Component;
