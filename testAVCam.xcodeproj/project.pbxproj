@@ -19,7 +19,6 @@
 		E46EC0B2268ED914000E9D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46EC0B0268ED914000E9D9D /* Main.storyboard */; };
 		E46EC0B4268ED916000E9D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46EC0B3268ED916000E9D9D /* Assets.xcassets */; };
 		E46EC0B7268ED916000E9D9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46EC0B5268ED916000E9D9D /* LaunchScreen.storyboard */; };
-		E46EC0C2268ED917000E9D9D /* testAVCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0C1268ED917000E9D9D /* testAVCamTests.swift */; };
 		E46EC0CD268ED917000E9D9D /* testAVCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0CC268ED917000E9D9D /* testAVCamUITests.swift */; };
 		E46EC0DF268EDA34000E9D9D /* StartPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0DE268EDA34000E9D9D /* StartPageViewController.swift */; };
 		E46EC0EE268EE17C000E9D9D /* ImagePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC0ED268EE17C000E9D9D /* ImagePreviewer.swift */; };
@@ -30,6 +29,9 @@
 		E46EC125268EEF23000E9D9D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC124268EEF23000E9D9D /* UIViewController+Alert.swift */; };
 		E46EC12A268EF716000E9D9D /* XibLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC129268EF716000E9D9D /* XibLoader.swift */; };
 		E46EC134268EF94D000E9D9D /* PermissionChecker+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EC133268EF94D000E9D9D /* PermissionChecker+Camera.swift */; };
+		E4DA9DE726909714002008E3 /* ImageCaptureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA9DE626909714002008E3 /* ImageCaptureProvider.swift */; };
+		E4DA9DEC26909E2F002008E3 /* StartPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA9DEB26909E2F002008E3 /* StartPageViewControllerTests.swift */; };
+		E4DA9DF426909E51002008E3 /* CameraViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA9DF326909E51002008E3 /* CameraViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +73,6 @@
 		E46EC0B6268ED916000E9D9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E46EC0B8268ED916000E9D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E46EC0BD268ED917000E9D9D /* testAVCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testAVCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E46EC0C1268ED917000E9D9D /* testAVCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAVCamTests.swift; sourceTree = "<group>"; };
 		E46EC0C3268ED917000E9D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E46EC0C8268ED917000E9D9D /* testAVCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testAVCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46EC0CC268ED917000E9D9D /* testAVCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAVCamUITests.swift; sourceTree = "<group>"; };
@@ -86,6 +87,9 @@
 		E46EC124268EEF23000E9D9D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		E46EC129268EF716000E9D9D /* XibLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoader.swift; sourceTree = "<group>"; };
 		E46EC133268EF94D000E9D9D /* PermissionChecker+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionChecker+Camera.swift"; sourceTree = "<group>"; };
+		E4DA9DE626909714002008E3 /* ImageCaptureProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCaptureProvider.swift; sourceTree = "<group>"; };
+		E4DA9DEB26909E2F002008E3 /* StartPageViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageViewControllerTests.swift; sourceTree = "<group>"; };
+		E4DA9DF326909E51002008E3 /* CameraViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,7 @@
 			children = (
 				E46EC11A268EEA1D000E9D9D /* CameraViewController.swift */,
 				E46EC11B268EEA1D000E9D9D /* CameraViewController.xib */,
+				E4DA9DE626909714002008E3 /* ImageCaptureProvider.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -210,8 +215,9 @@
 		E46EC0C0268ED917000E9D9D /* testAVCamTests */ = {
 			isa = PBXGroup;
 			children = (
-				E46EC0C1268ED917000E9D9D /* testAVCamTests.swift */,
 				E46EC0C3268ED917000E9D9D /* Info.plist */,
+				E4DA9DEB26909E2F002008E3 /* StartPageViewControllerTests.swift */,
+				E4DA9DF326909E51002008E3 /* CameraViewControllerTests.swift */,
 			);
 			path = testAVCamTests;
 			sourceTree = "<group>";
@@ -557,6 +563,7 @@
 				E46EC0DF268EDA34000E9D9D /* StartPageViewController.swift in Sources */,
 				E46EC116268EE982000E9D9D /* Rx+UIButton.swift in Sources */,
 				E46EC11C268EEA1D000E9D9D /* CameraViewController.swift in Sources */,
+				E4DA9DE726909714002008E3 /* ImageCaptureProvider.swift in Sources */,
 				E43D29AB26903007003BE9B2 /* PreviewView.swift in Sources */,
 				E43D29A326902FFA003BE9B2 /* PhotoCaptureDelegate.swift in Sources */,
 				E43D29B02690325C003BE9B2 /* VideoSessionController.swift in Sources */,
@@ -572,7 +579,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46EC0C2268ED917000E9D9D /* testAVCamTests.swift in Sources */,
+				E4DA9DEC26909E2F002008E3 /* StartPageViewControllerTests.swift in Sources */,
+				E4DA9DF426909E51002008E3 /* CameraViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

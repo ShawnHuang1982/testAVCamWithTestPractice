@@ -13,12 +13,15 @@ class StartPageViewController: UIViewController {
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var imagePreview: ImagePreviewer!
     private var disposeBag: DisposeBag = DisposeBag()
-    var checker: PermissionManager = PermissionManager()
+    var permissonChecker: PermissionManager = PermissionManager()
+    var captureViewController: ImageCaptureProvider = CameraViewController()
     
-//    var cameraViewController: CameraViewController = {
-//        let vc = CameraViewController()
-//        return vc
-//    }()
+    internal static func instantiate(captureViewController: ImageCaptureProvider, permissonChecker: PermissionManager) -> StartPageViewController {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartPageViewController") as! StartPageViewController
+        vc.captureViewController = captureViewController
+        vc.permissonChecker = permissonChecker
+        return vc
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,24 +29,22 @@ class StartPageViewController: UIViewController {
     }
     
     private func setupBinidng() {
-        
         //啟動拍照程序前, 需檢查
         takePhotoButton.rx
             .touchUpInside
-            .flatMap{ [unowned self] in checker.requestVideoPermission() }
-            .subscribe(onNext: { [weak self] isCanLaunchCamera in
-                self?.launchCamerInCan(isCan: isCanLaunchCamera)
+            .flatMap{ [unowned self] in permissonChecker.requestVideoPermission() }
+            .subscribe(onNext: { [weak self] allowed in
+                self?.launchCameraIfCan(allowed)
             }).disposed(by: self.disposeBag)
+        
+        self.captureViewController.delegate = self
     }
     
-    
-    
-    private func launchCamerInCan(isCan: Bool) {
+    private func launchCameraIfCan(_ isCan: Bool) {
         DispatchQueue.main.async {
             if isCan {
-                let cameraViewController = CameraViewController()
-                cameraViewController.delegate = self
-                self.present(cameraViewController, animated: true)
+                self.captureViewController.modalPresentationStyle = .fullScreen
+                self.present(self.captureViewController, animated: true)
             } else {
                 self.presentAlertView(type: .okAction(message: "請同意權限", handler: { (action) in
                     //handle redirect to setting app
@@ -53,9 +54,7 @@ class StartPageViewController: UIViewController {
     }
 }
 
-extension StartPageViewController: CameraViewControllerDelegate {
-    func dismissed() {
-    }
+extension StartPageViewController: ImageCaptureProviderDelegate {
     
     func getPhoto(image: UIImage) {
         //取得圖片

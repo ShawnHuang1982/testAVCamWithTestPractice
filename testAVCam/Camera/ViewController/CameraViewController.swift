@@ -8,13 +8,9 @@
 import UIKit
 import RxSwift
 
-
-protocol CameraViewControllerDelegate: class {
-    func getPhoto(image: UIImage)
-    func dismissed()
-}
-
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, ImageCaptureProvider {
+    
+    var delegate: ImageCaptureProviderDelegate?
     
     @IBOutlet weak var takeButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
@@ -29,8 +25,6 @@ class CameraViewController: UIViewController {
         self.view.addSubview(spinner)
         return spinner
     }()
-
-    weak var delegate: CameraViewControllerDelegate?
     
     var captureController: VideoSessionController?
     var checker: PermissionManager = PermissionManager()
@@ -77,9 +71,7 @@ class CameraViewController: UIViewController {
         
         dismissButton.rx.touchUpInside.observe(on: MainScheduler.instance)
             .bind{ [weak self] in
-                self?.dismiss(animated: true, completion: {
-                    self?.delegate?.dismissed()
-                })
+                self?.dismiss(animated: true, completion: nil)
             }.disposed(by: self.disposeBag)
     }
     

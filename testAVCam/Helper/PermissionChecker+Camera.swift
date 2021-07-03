@@ -17,14 +17,6 @@ protocol CaptureDevice {
 
 class AVDevice: CaptureDevice {
     
-    init() {
-        
-    }
-    
-    deinit {
-        print("av device deint")
-    }
-    
     func requestAccess(completionHandler: @escaping (Bool) -> Void) {
         AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
             completionHandler(granted)
@@ -39,10 +31,10 @@ class AVDevice: CaptureDevice {
 
 class PermissionManager {
     
-    var device: CaptureDevice?
+    var device: CaptureDevice
     
-    init(device: CaptureDevice? = nil) {
-        self.device = AVDevice()
+    init(device: CaptureDevice = AVDevice()) {
+        self.device = device
     }
     
     deinit {
@@ -51,11 +43,11 @@ class PermissionManager {
     
     func requestVideoPermission() -> Observable<Bool> {
         return Observable.create { [weak self] observer -> Disposable in
-            switch self?.device?.authorizationVideoStatus {
+            switch self?.device.authorizationVideoStatus {
             case .authorized:
                 observer.onNext(true)
             case .notDetermined:
-                self?.device?.requestAccess { (granted) in
+                self?.device.requestAccess { (granted) in
                     observer.onNext(granted)
                 }
             default:

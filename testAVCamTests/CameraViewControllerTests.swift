@@ -1,14 +1,13 @@
 //
-//  testAVCamTests.swift
+//  CameraViewControllerTests.swift
 //  testAVCamTests
 //
-//  Created by huang on 2021/7/2.
+//  Created by huang on 2021/7/3.
 //
 
 import XCTest
-@testable import testAVCam
 
-class testAVCamTests: XCTestCase {
+class CameraViewControllerTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
