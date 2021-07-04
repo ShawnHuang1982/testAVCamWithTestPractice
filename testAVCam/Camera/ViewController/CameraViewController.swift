@@ -10,13 +10,11 @@ import RxSwift
 
 class CameraViewController: UIViewController, ImageCaptureProvider {
     
-    var delegate: ImageCaptureProviderDelegate?
     
     @IBOutlet weak var takeButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet private weak var previewView: PreviewView!
     
-    private var disposeBag: DisposeBag = DisposeBag()
     lazy var spinner: UIActivityIndicatorView! = {
         let spinner = UIActivityIndicatorView()
         spinner.hidesWhenStopped = true
@@ -25,10 +23,11 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
         self.view.addSubview(spinner)
         return spinner
     }()
-    
+
+    private var disposeBag: DisposeBag = DisposeBag()
     var captureController: VideoSessionController?
     var permissionChecker: PermissionManager = PermissionManager()
-
+    var delegate: ImageCaptureProviderDelegate?
     var viewModel: CameraViewModel = CameraViewModel()
     
     override func viewDidLoad() {
@@ -44,7 +43,7 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
             .requestVideoPermission()
             .subscribe(onNext: { [weak self] allowed in
                 if allowed {
-                    self?.startSession()
+                    self?.viewModel.startSession.accept(())
                 } else {
                     self?.presentAlertView(type: .okAction(message: "發生錯誤了，請檢查相關設定", handler: { (action) in
                         self?.dismiss(animated: true, completion: nil)
@@ -55,12 +54,14 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        stopSession()
+        viewModel.stopSession.accept(())
         super.viewWillDisappear(animated)
     }
     
-    deinit {
-        print(#file, "deinit")
+    private func setupUI() {
+        captureController = VideoSessionController(previewView: previewView)
+        captureController?.delegate = self
+        viewModel.setupSession.accept(())
     }
     
     private func setupBinding() {
@@ -74,39 +75,37 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
             .bind{ [weak self] in
                 self?.dismiss(animated: true, completion: nil)
             }.disposed(by: self.disposeBag)
-    }
-    
-    private func setupUI() {
-        captureController = VideoSessionController(previewView: previewView)
-        captureController?.delegate = self
-        captureController?.setupSession()
-    }
-    
-    private func startSession() {
-        captureController?.startSession()
-    }
-    
-    private func stopSession() {
-        captureController?.stopSession()
+        
+        viewModel.isLoading.subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] animate in
+                animate ?
+                    self?.spinner.startAnimating() :
+                    self?.spinner.stopAnimating()
+            }).disposed(by: self.disposeBag)
+        
+        viewModel.setupSession.subscribe(onNext: { [weak self] in
+            self?.captureController?.setupSession()
+        }).disposed(by: self.disposeBag)
+        
+        viewModel.startSession.subscribe(onNext: { [weak self] in
+            self?.captureController?.startSession()
+        }).disposed(by: self.disposeBag)
+        
+        viewModel.stopSession.subscribe(onNext: { [weak self] in
+            self?.captureController?.stopSession()
+            self?.viewModel.isLoading.accept(false)
+        }).disposed(by: self.disposeBag)
     }
 }
 
 extension CameraViewController: VideoSessionControllerDelegate {
     func savePhoto(_ image: UIImage) {
-        self.dismiss(animated: true) {
-            self.delegate?.getPhoto(image: image)
+        self.dismiss(animated: true) { [weak self] in
+            self?.delegate?.getPhoto(image: image)
         }
     }
     
     func photoProcessing(_ animate: Bool) {
-        DispatchQueue.main.async {
-            if animate {
-                self.spinner.startAnimating()
-                print("spinner start")
-            } else {
-                self.spinner.stopAnimating()
-                print("spinner end")
-            }
-        }
+        self.viewModel.isLoading.accept(animate)
     }
 }
