@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A52F815A-3CB1-4FA9-A5A7-FC1A513ADDEE"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFBAEF43-BDE2-49F4-B1AD-A24C76274149"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testAVCam/Component/Capturer/VideoSessionController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "focus(with:exposureMode:at:monitorSubjectAreaChange:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFBAEF43-BDE2-49F4-B1AD-A24C76274149 - 22b58c341663346e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testAVCam.VideoSessionController.(focus in _17BC9F580CA8BF0DFEDE8D5B6055C5E2)(with: __C.AVCaptureFocusMode, exposureMode: __C.AVCaptureExposureMode, at: __C.CGPoint, monitorSubjectAreaChange: Swift.Bool) -&gt; ()"
+                  moduleName = "testAVCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mymacbook/Desktop/testAVCam/testAVCam/Component/Capturer/VideoSessionController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "283">
+               </Location>
+               <Location
+                  uuid = "DFBAEF43-BDE2-49F4-B1AD-A24C76274149 - 9ffede3e7699ea19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in testAVCam.VideoSessionController.(focus in _17BC9F580CA8BF0DFEDE8D5B6055C5E2)(with: __C.AVCaptureFocusMode, exposureMode: __C.AVCaptureExposureMode, at: __C.CGPoint, monitorSubjectAreaChange: Swift.Bool) -&gt; ()"
+                  moduleName = "testAVCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mymacbook/Desktop/testAVCam/testAVCam/Component/Capturer/VideoSessionController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "249">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A3AB2C1-4056-41B1-B887-5947E3283B3D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testAVCam/Component/Capturer/VideoSessionController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "takeCapturePhoto()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
