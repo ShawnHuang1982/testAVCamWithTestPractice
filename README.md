@@ -12,5 +12,14 @@ Technical requirement:
 
 
 
+# Implement
+## 頁面書名
+### StartPageViewController
+- 首頁
+- 展示圖片
+
+### CameraViewController
+- 拍照, 取得照片後, 返回至 StartPageViewController
+- 處理畫面即時Preview
 
 

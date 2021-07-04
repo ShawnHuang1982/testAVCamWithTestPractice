@@ -10,7 +10,6 @@ import RxSwift
 
 class CameraViewController: UIViewController, ImageCaptureProvider {
     
-    
     @IBOutlet weak var takeButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet private weak var previewView: PreviewView!

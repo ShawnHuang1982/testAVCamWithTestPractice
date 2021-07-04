@@ -205,8 +205,7 @@
 				E46EC132268EF925000E9D9D /* Helper */,
 				E46EC0F7268EE4E7000E9D9D /* Extension */,
 				E46EC0EC268EE14E000E9D9D /* Component */,
-				E46EC108268EE756000E9D9D /* Camera */,
-				E46EC0E8268EDA4A000E9D9D /* Home */,
+				E4DA9E2826919542002008E3 /* Presentation */,
 				E46EC0AA268ED914000E9D9D /* AppDelegate.swift */,
 				E46EC0AC268ED914000E9D9D /* SceneDelegate.swift */,
 				E46EC0B0268ED914000E9D9D /* Main.storyboard */,
@@ -305,6 +304,15 @@
 				E46EC133268EF94D000E9D9D /* PermissionChecker+Camera.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		E4DA9E2826919542002008E3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E46EC0E8268EDA4A000E9D9D /* Home */,
+				E46EC108268EE756000E9D9D /* Camera */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
