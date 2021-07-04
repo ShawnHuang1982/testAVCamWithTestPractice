@@ -11,15 +11,17 @@ Technical requirement:
 2. write unit tests for viewModels / interactors(if any)
 
 
-
 # Implement
-## 頁面書名
+## 頁面名稱
 ### StartPageViewController
 - 首頁
-- 展示圖片
+- 顯示圖片
+- 導頁到拍照頁面
 
 ### CameraViewController
-- 拍照, 取得照片後, 返回至 StartPageViewController
+- 拍照, 取得照片後, 並將結果返回至 前一頁StartPageViewController
 - 處理畫面即時Preview
 
+## Reference
+- https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/avcam_building_a_camera_app
 
