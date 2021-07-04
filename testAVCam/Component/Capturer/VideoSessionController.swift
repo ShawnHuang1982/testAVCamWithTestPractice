@@ -15,19 +15,27 @@ protocol VideoSessionControllerDelegate: class {
     func savePhoto(_ image: UIImage)
 }
 
-class VideoSessionController: UIViewController {
-    
+protocol VideoSessionImageCaptureProvider where Self : UIViewController {
+    var delegate: VideoSessionControllerDelegate? { get set }
+    func tapCapture()
+    func setupSession()
+    func startSession()
+    func stopSession()
+    var previewView: PreviewView? { get set }
+}
+
+class VideoSessionController: UIViewController, VideoSessionImageCaptureProvider {
     var windowOrientation: UIInterfaceOrientation {
         return view.window?.windowScene?.interfaceOrientation ?? .unknown
     }
     
     weak var delegate: VideoSessionControllerDelegate?
+    var previewView: PreviewView?
     
     let locationManager = CLLocationManager()
     
-    init(previewView: PreviewView) {
+    init() {
         super.init(nibName:nil, bundle:nil)
-        self.previewView = previewView
     }
     
     required init?(coder: NSCoder) {
@@ -35,11 +43,11 @@ class VideoSessionController: UIViewController {
     }
     
     deinit {
-        print(#file, "deinit")
+        print(String(describing: self), "deinit")
     }
     
     func setupSession() {
-        previewView.session = session
+        previewView?.session = session
         sessionQueue.async {
             self.configureSession()
         }
@@ -60,7 +68,7 @@ class VideoSessionController: UIViewController {
     }
     
     func changeOrientationIfNeeded() {
-        if let videoPreviewLayerConnection = previewView.videoPreviewLayer.connection {
+        if let videoPreviewLayerConnection = previewView?.videoPreviewLayer.connection {
             let deviceOrientation = UIDevice.current.orientation
             guard let newVideoOrientation = AVCaptureVideoOrientation(deviceOrientation: deviceOrientation),
                   deviceOrientation.isPortrait || deviceOrientation.isLandscape else {
@@ -96,9 +104,7 @@ class VideoSessionController: UIViewController {
     // Communicate with the session and other session objects on this queue.
     private let sessionQueue = DispatchQueue(label: "session queue")
     @objc dynamic var videoDeviceInput: AVCaptureDeviceInput?
-    
-    weak var previewView: PreviewView!
-    
+        
     // Call this on the session queue.
     /// - Tag: ConfigureSession
     private func configureSession() {
@@ -156,7 +162,7 @@ class VideoSessionController: UIViewController {
                         }
                     }
                     
-                    self.previewView.videoPreviewLayer.connection?.videoOrientation = initialVideoOrientation
+                    self.previewView?.videoPreviewLayer.connection?.videoOrientation = initialVideoOrientation
                 }
             } else {
                 print("Couldn't add video device input to the session.")
@@ -248,7 +254,7 @@ class VideoSessionController: UIViewController {
     private var inProgressPhotoCaptureDelegates = [Int64: PhotoCaptureProcessor]()
     
     private func takeCapturePhoto() {
-        let videoPreviewLayerOrientation = previewView.videoPreviewLayer.connection?.videoOrientation
+        let videoPreviewLayerOrientation = previewView?.videoPreviewLayer.connection?.videoOrientation
         
         sessionQueue.async {
             if let photoOutputConnection = self.photoOutput.connection(with: .video) {
@@ -293,9 +299,9 @@ class VideoSessionController: UIViewController {
             let photoCaptureProcessor = PhotoCaptureProcessor(with: photoSettings, willCapturePhotoAnimation: {
                 // Flash the screen to signal that AVCam took a photo.
                 DispatchQueue.main.async {
-                    self.previewView.videoPreviewLayer.opacity = 0
+                    self.previewView?.videoPreviewLayer.opacity = 0
                     UIView.animate(withDuration: 0.25) {
-                        self.previewView.videoPreviewLayer.opacity = 1
+                        self.previewView?.videoPreviewLayer.opacity = 1
                     }
                 }
             }, livePhotoCaptureHandler: { [weak self] capturing in

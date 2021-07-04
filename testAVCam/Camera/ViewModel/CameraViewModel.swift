@@ -17,7 +17,7 @@ class CameraViewModel {
     
     var setupSession = PublishRelay<Void>()
     
-    var isLoading = BehaviorRelay<Bool>(value: false)
+    var isLoading = PublishRelay<Bool>()
     
 }
 

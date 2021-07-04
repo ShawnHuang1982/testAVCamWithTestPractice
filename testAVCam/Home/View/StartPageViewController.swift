@@ -14,7 +14,7 @@ class StartPageViewController: UIViewController {
     @IBOutlet weak var imagePreview: ImagePreviewer!
     private var disposeBag: DisposeBag = DisposeBag()
     var permissonChecker: PermissionManager = PermissionManager()
-    var captureViewController: ImageCaptureProvider = CameraViewController()
+    var captureViewController: ImageCaptureProvider?
     var viewModel: StartPageViewModel = StartPageViewModel()
     
     override func viewDidLoad() {
@@ -35,8 +35,9 @@ class StartPageViewController: UIViewController {
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 if allowed {
-                    self.captureViewController.modalPresentationStyle = .fullScreen
-                    self.present(self.captureViewController, animated: true)
+                    self.captureViewController = CameraViewController(imageCaptureProviderDelegate: self)
+                    self.captureViewController?.modalPresentationStyle = .fullScreen
+                    self.present(self.captureViewController!, animated: true)
                 } else {
                     self.presentAlertView(type: .okAction(message: "請同意權限", handler: { (action) in
                         //handle redirect to setting app
@@ -47,8 +48,7 @@ class StartPageViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.captureViewController.delegate = self
-
+        self.captureViewController?.delegate = self
     }
     
 }
@@ -64,7 +64,7 @@ extension StartPageViewController: ImageCaptureProviderDelegate {
 
 extension StartPageViewController {
     internal static func instantiate(captureViewController: ImageCaptureProvider, permissonChecker: PermissionManager) -> StartPageViewController {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartPageViewController") as! StartPageViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: NSStringFromClass(self)) as! StartPageViewController
         vc.captureViewController = captureViewController
         vc.permissonChecker = permissonChecker
         return vc

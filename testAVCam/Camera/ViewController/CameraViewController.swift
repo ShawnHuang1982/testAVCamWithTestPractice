@@ -25,8 +25,8 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
     }()
 
     private var disposeBag: DisposeBag = DisposeBag()
-    var captureController: VideoSessionController?
-    var permissionChecker: PermissionManager = PermissionManager()
+    var captureController: VideoSessionImageCaptureProvider?
+    var permissionChecker: PermissionManager!
     var delegate: ImageCaptureProviderDelegate?
     var viewModel: CameraViewModel = CameraViewModel()
     
@@ -58,9 +58,16 @@ class CameraViewController: UIViewController, ImageCaptureProvider {
         super.viewWillDisappear(animated)
     }
     
+    convenience init(captureController: VideoSessionImageCaptureProvider = VideoSessionController(), imageCaptureProviderDelegate: ImageCaptureProviderDelegate?, permissionChecker: PermissionManager = PermissionManager()) {
+        self.init()
+        self.captureController = captureController
+        self.captureController?.delegate = self
+        self.delegate = imageCaptureProviderDelegate
+        self.permissionChecker = permissionChecker
+    }
+    
     private func setupUI() {
-        captureController = VideoSessionController(previewView: previewView)
-        captureController?.delegate = self
+        self.captureController?.previewView = previewView
         viewModel.setupSession.accept(())
     }
     

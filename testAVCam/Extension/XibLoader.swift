@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+//https://medium.com/jeremy-xue-s-blog/swift-創建自定義視圖-customview-8d61402ae937
+
 protocol NibOwnerLoadable: AnyObject {
     static var nib: UINib { get }
 }
