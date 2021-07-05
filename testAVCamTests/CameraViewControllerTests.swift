@@ -23,10 +23,10 @@ class CameraViewControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    ///當圖片處理中 顯示isloading
+    ///初始化 isloading false
     func test_afterProcessing_isLoadingOff() {
         let sut = makeSUT().0
-        let exp = expectation(description: "isLoading true")
+        let exp = expectation(description: "isLoading false")
         sut.viewModel.isLoading
             .subscribe(onNext: { isLoading in
             //assert
@@ -37,7 +37,7 @@ class CameraViewControllerTests: XCTestCase {
         wait(for: [exp], timeout: 1)
     }
     
-    ///點擊拍照鈕, 當圖片處理中, 顯示isloading
+    ///點擊拍照鈕, 當圖片處理中, isloading為true(顯示activity)
     func test_whenProcessing_isLoadingOn() {
         let sut = makeSUT().0
         let exp = expectation(description: "isLoading true")
