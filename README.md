@@ -22,6 +22,16 @@ Technical requirement:
 - 拍照, 取得照片後, 並將結果返回至 前一頁StartPageViewController
 - 處理畫面即時Preview
 
+## 測試項目
+- StartPageViewController
+1. 取得圖片後, 輸出會顯示圖片
+2. 拒絕相機權限，不能進入相機頁面
+3. 使用者同意相機權限, 點擊下一頁後可以進入相機頁面
+
+- CameraViewController
+- 點擊拍照鈕, 當圖片處理中, isloading為true(顯示activity)
+- 點擊拍照鈕, 得到照片
+
 ## Reference
 - https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/avcam_building_a_camera_app
 
